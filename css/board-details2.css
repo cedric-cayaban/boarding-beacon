@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+   
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.system-name{
+    margin-top: 10px;
+    margin-right: 100px;
+    font-size: 1.48rem;
+    
+
+}
+
+.system-name label{
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 1.48rem;
+    font-family: "Poppins", sans-serif;
+    opacity: 0.8;
+}
+
+
+/* Style the top section */
+.top-section {
+    display: flex;
+    align-items: center;
+    padding: 10px 70px;
+    max-width: 34%;
+    background-color: white;
+    position: sticky;
+}
+
+
+/* Style the logo */
+.logo {
+    max-width: 100px; /* Adjust the max-width as needed */
+    margin-right: 10px; /* Add spacing between the logo and text */
+}
+
+/* Style the university name */
+
+.top-section label{
+    color: black;
+    font-size: 1.58rem;
+   
+}
+.brand-name {
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+}
+.navi ul{
+    display: flex;
+    list-style: none;
+    
+}
+.navi ul li{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.navi ul li a{
+    text-decoration: none;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    transition: all .5s ease;
+}
+.navi ul li a:hover{
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 10px white;
+}
+
+
+/* info */
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #df4881, #FE721B);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+    margin-top: 5%;
+   
+}
+.content{
+    margin-top: 8;
+    max-width: 700px;
+    float: right;
+    /* right: 10; */
+    border: 1 px solid black;
+    
+}
+
+.content img{
+    border-radius: 10px 10px 10px 10px;
+    
+}
+.content h1{
+    margin-top: 8%;
+    font-size: 70px;
+    color: #222;
+    
+}
+.content h4{
+  
+    font-size: 25px;
+    color: #222;
+    
+}
+
+.content p{
+    font-size: 20px;
+    margin: 10px 0 30px;
+    color: #333;
+    
+}
+.content .btn{
+    position: absolute;
+    bottom: 15%;
+    padding: 15px 80px;
+    font-size: 15px;
+}
+
+.btn:hover{
+    margin-top: 100%;
+    border-top-right-radius: 30px;
+    
+}
+.image{  
+    width: 500px;
+    height: 350px;
+   border-radius: 10px;
+    
+}
+
+
+/* bottom */
+
+.cont{
+    margin-left: 12%;
+    margin-top: 25%;
+    max-width: 450px;
+    /* border: 1px solid black; */
+   
+}
+
+/* .cont {
+    margin-left: 8%;
+    margin-top: 25%;
+    max-width: 800px;
+    /* border: 1px solid black; 
+   
+} */
+
+
+
+
+ .contt{
+    margin-left: 8%;
+    margin-top: 0%;
+    max-width: 1000px;
+     border: 1px solid black; 
+   
+}
+.cont .img{  
+    width: 140px;
+    height: 140px;
+    /* position: absolute; */
+    /* bottom: 5;  */
+    /* right: 5%; */
+    /* margin-top: 3%;  */
+    display: inline-block;
+    align-items: center;
+    padding: auto;
+
+    
+  
+  
+}
+/*
+.img2{  
+    width: 250px;
+    height: 250px;
+    /* position: absolute; 
+    /* bottom: 5; 
+    /* left: 10%; 
+    margin-top: 3%;
+    display: inline-block;
+}
+/* .owner {
+    display: inline-block;
+     border: 1px solid red; 
+    padding: 1rem 1rem;
+    vertical-align: middle;
+  }
+.cont .owner{
+    margin-left: 7%;
+}  */
+
