@@ -14,11 +14,12 @@ header {
     
 }
 
+
+
 .system-name{
-    margin-top: 10px;
     margin-right: 100px;
     font-size: 1.48rem;
-    
+    margin-top: 10px;
 
 }
 
@@ -49,7 +50,7 @@ header {
     display: flex;
     align-items: center;
     padding: 10px 70px;
-    max-width: 34%;
+    
     background-color: white;
     position: sticky;
 }
@@ -69,7 +70,7 @@ header {
    
 }
 .brand-name {
-    font-size: 2rem;
+    font-size: 1.58rem;
     font-weight: 500;
     color: black;
 }
@@ -89,6 +90,7 @@ header {
     background-color: #FE721B;
     position: sticky;
     top: 0;
+    font-family: "Poppins", sans-serif;
 }
 
 #selected{
@@ -148,16 +150,16 @@ header {
 
 
 .split-labels{
-    margin-bottom: 1%;
+    display: flex;
+    justify-content: space-around;
 }
 
-#upload{
-    margin-left: 42%;
+.split-labels label{
+    width: 50%;
 }
 
-#boardingImage{
-    margin-left: 35px;
-}
+
+
 
 .split input[type="file"]{
     height: 40px;
@@ -176,9 +178,7 @@ header {
 
 
 
-#unitNo{
-    margin-left: 32px;
-}
+
 
 .input1 input{ 
     margin-bottom: 40px;
@@ -225,7 +225,6 @@ header {
 }
 
 #program-label{
-    margin-top: 25px;
     font-weight: bold;
 }
 
@@ -266,11 +265,10 @@ header {
 
  #submitFile{
     margin-top: 30px;
-    margin-left: 88%;
     background-color: #FE721B;
     color: #fff;
     height: 50px;
-    width: 170px;
+    width: 100%;
     font-weight: bold;
     font-size: 1rem;
  }

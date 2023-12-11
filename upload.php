@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project</title>
-    <link rel="stylesheet" href="css/upload2.css">
+    <link rel="stylesheet" href="css/upload3.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
 </head>
 
@@ -13,14 +13,13 @@
 <header>
         <div class="top-section">
             <img class="logo" src="images/image-logo.png" alt="PSU Logo">
-            <label><b>BOARDING</b><span class="brand-name"> BEACON</span></label> 
+            <label><b>BOARDING</b><span class="brand-name"> <b>BEACON</b></span></label> 
             
         </div>
         <div class="system-name">
-            <label for=""><b>BOARDING HOUSE FINDER</b></label>
             <button type="submit" id="logout">LOGOUT</button>
         </div>
-    
+   
         
     </header>
     
@@ -47,21 +46,12 @@
                     <label for="">Boarding House name:</label>
                     <input type="text" name="title" required>
 
-                    <div class="split-labels">
+                   
                          <label for="" id="program-label">Address</label>
-                         <label for="capstoneFile" name="fileContent" id="upload">Boarding house image:</label>
-                    </div>
-                    <div class="split">
-                       
 
                         <select name="address" id="program">
                                 <option value="San-Vicente">San-Vicente / PSU-Village</option>
-                        </select>
-
-                        
-                        <input type="file" name="boardingImage" id="boardingImage" required>
-                    </div>
-
+                        </select>   
                     <label for="">Description:</label>
                     <textarea name="info" name="info" id="" cols="30" rows="10" required></textarea>
                     
@@ -80,7 +70,8 @@
                         <input type="number" name="price" placeholder="₱" required>
                         <input type="number" name="unitsNo" required>
                     </div> 
-                    
+                    <label for="capstoneFile" name="fileContent" id="upload">Boarding image:</label>
+                    <input type="file" name="boardingImage" id="boardingImage" required>
                     <label for="capstoneFile" name="unit1">Units image:</label>
                     <input type="file" name="unit1" id="unitImage" required>
                     <input type="file" name="unit1" id="unitImage" required>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/tenant-home3.css">
+    <link rel="stylesheet" href="css/tenant-home4.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
@@ -12,11 +12,11 @@
     <header>
         <div class="top-section">
             <img class="logo" src="images/image-logo.png" alt="PSU Logo">
-            <label><b>BOARDING</b><span class="brand-name"> BEACON</span></label> 
+            <label><b>BOARDING</b><span class="brand-name"> <b></b>BEACON</span></label> 
             
         </div>
         <div class="system-name">
-            <label for=""><b>BOARDING HOUSE FINDER</b></label>
+           
             <button type="submit" id="logout">LOGOUT</button>
         </div>
     

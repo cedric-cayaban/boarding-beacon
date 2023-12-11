@@ -49,7 +49,6 @@ header {
     display: flex;
     align-items: center;
     padding: 10px 70px;
-    max-width: 34%;
     background-color: white;
     position: sticky;
 }
@@ -69,7 +68,7 @@ header {
    
 }
 .brand-name {
-    font-size: 2rem;
+    font-size: 1.58rem;
     font-weight: 500;
     color: black;
 }
@@ -87,7 +86,9 @@ header {
     padding-right: 8%;
     align-items: center;
     background-color: #FE721B;
+    color: #fff;
     position: sticky;
+    font-family: "Poppins", sans-serif;
     top: 0;
 }
 
