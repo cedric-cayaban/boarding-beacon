@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+   
+   
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.system-name{
+    margin-top: 10px;
+    margin-right: 100px;
+    font-size: 1.48rem;
+    
+
+}
+
+.system-name label{
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 1.48rem;
+    font-family: "Poppins", sans-serif;
+    opacity: 0.8;
+}
+
+
+/* Style the top section */
+.top-section {
+    display: flex;
+    align-items: center;
+    padding: 10px 70px;
+    max-width: 34%;
+    background-color: white;
+    position: sticky;
+}
+
+
+/* Style the logo */
+.logo {
+    max-width: 100px; /* Adjust the max-width as needed */
+    margin-right: 10px; /* Add spacing between the logo and text */
+}
+
+/* Style the university name */
+
+.top-section label{
+    color: black;
+    font-size: 1.58rem;
+   
+}
+.brand-name {
+    font-size: 1.58rem;
+    font-weight: 500;
+    color: black;
+}
+.navi ul{
+    display: flex;
+    list-style: none;
+    
+}
+.navi ul li{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.navi ul li a{
+    text-decoration: none;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 16px;
+    transition: all .5s ease;
+}
+.navi ul li a:hover{
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 10px white;
+}
+
+
+#logout{
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* info */
+#btn{
+    display: inline-block;
+    text-decoration: none;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 40px;
+    padding-right: 14px;
+    width: 90px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #df4881, #FE721B);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+    margin-top: 5%;
+   
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3%;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.content1{
+
+}
+
+.mainImg img{
+    border-radius: 10px 10px 10px 10px;
+    width: 500px;
+    height: 350px;
+}
+
+.imgRow1{
+    margin-top: 20px;
+}
+
+.imgRow1 img{
+    height: 85px;
+    width: 164px;
+    border-radius: 5px;
+}
+
+.imgRow2 img{
+    height: 85px;
+    width: 164px;
+    border-radius: 5px;
+}
+
+.content2{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 2.5%;
+   
+}
+
+.content2 hr{
+    border: solid #FE721B 1px;
+}
+.content2 label{
+    margin-bottom: 3%;
+}
+.content2 p{
+    margin-bottom: 1%;
+}
+#bName{
+    font-size: 4rem;
+    padding-top: 7%;
+}
+
+.button{
+    padding-bottom: 7%;
+}
+
+#bAddress{
+   font-size: 1.4rem;
+}
+
+
+
+#unitNo{
+    
+}
+
+#oName{
+    
+}
+
+#oNumber{
+    
+}
+
+#oPrice{
+    margin-bottom: 3%;
+    font-size: 1.7rem;
+    color: #FE721B;
+}
+
+
+

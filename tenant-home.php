@@ -1,12 +1,25 @@
+<?php
+require 'db.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/tenant-home4.css">
+    <link rel="stylesheet" href="css/tenant-home5.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
+<?php
+    if (isset($_POST['logout'])) {
+            session_start();
+            session_destroy();
+            header("Refresh: 1; url='user-type-login.php'");
+            echo "<script>alert('Logged out successfully.')</script>";
+        }
+?>
 <body>
 
     <header>
@@ -15,10 +28,12 @@
             <label><b>BOARDING</b><span class="brand-name"> <b></b>BEACON</span></label> 
             
         </div>
+        <form action="tenant-home.php" method="post">
         <div class="system-name">
-           
-            <button type="submit" id="logout">LOGOUT</button>
+            <button type="submit" id="logout" name="logout">LOGOUT</button>
         </div>
+        </form>
+        
     
         
     </header>
@@ -32,87 +47,45 @@
         </ul>
     </nav>
 
-    <div class="container">
-    
-        <div class="boardings">
-            <label for="" id="board-header">Find Boarding Houses</label>
-            <ul class="board-row">
-                <!-- eto ang iouutput sa for loop -->
-                <div class="box">
-                    <a href=""><img src="images/Pagaduan.png" alt="image"></a>
-                    <label for="" id="Bname">Boarding Name</label> 
-                    <label for="" id="Bprice">Boarding price</label> 
-                    <label for="" id="Baddress">Boarding Address</label>
-                    <hr>
-                    <div class="button">
-                        <a href="" id="view">See details</a>
-                </div>
-                    
-                </div>
-            
-                <!-- eto ang iouutput sa for loop -->
+    <div class='container'>
+    <div class='boardings'>
+        <label id='board-header'>Find Boarding Houses</label>
+        <?php
+        $dataset = $con->query("select * from boarding inner join address where boarding.addressID=address.addressID") or die("error");
 
-                <div class="box">
-                    <a href=""><img src="images/Pagaduan.png" alt="image"></a>
-                    <label for="" id="Bname">Boarding Name</label> 
-                    <label for="" id="Bprice">Boarding price</label> 
-                    <label for="" id="Baddress">Boarding Address</label>
-                    <hr>
-                    <div class="button">
-                        <a href="" id="view">See details</a>
-                    </div>
-                </div>
+        for ($i = 0; $i < $dataset->num_rows; $i += 3) {
+            echo "<ul class='board-row'>";
 
-                <div class="box">
-                    <a href=""><img src="images/Pagaduan.png" alt="image"></a>
-                    <label for="" id="Bname">Boarding Name</label> 
-                    <label for="" id="Bprice">Boarding price</label> 
-                    <label for="" id="Baddress">Boarding Address</label>
-                    <hr>
-                    <div class="button">
-                        <a href="" id="view">See details</a>
-                    </div>
-                </div>             
-            </ul>
+            for ($j = 0; $j < 3; $j++) {
+                $row = $dataset->fetch_assoc();
 
-            <ul class="board-row">
-            <div class="box">
-                    <a href=""><img src="images/Pagaduan.png" alt="image"></a>
-                    <label for="" id="Bname">Boarding Name</label> 
-                    <label for="" id="Bprice">Boarding price</label> 
-                    <label for="" id="Baddress">Boarding Address</label>
-                    <hr>
-                    <div class="button">
-                        <a href="" id="view">See details</a>
-                    </div>
-                </div>
+                if ($row) {
+                    echo "
+                        <li>
+                            <div class='box'>
+                                <a href='board-details.php?id=" . $row['boardID'] . "'>
+                                    <img src='images/" . $row['bImage'] . "' alt='images'>
+                                </a>
+                                <label id='Bname'>" . $row['bName'] . "</label>
+                                <label id='Bprice'>₱ <b>" . $row['bPrice'] . "</b> monthly</label>
+                                <label id='Baddress'>" . $row['barangay'] . "</label>
+                                <hr>
+                                <div class='button'>
+                                    <a href='board-details.php?id=" . $row['boardID'] . "'>See details</a>
+                                </div>
+                            </div>
+                        </li>";
+                }
+            }
 
-                <div class="box">
-                    <a href=""><img src="images/Pagaduan.png" alt="image"></a>
-                    <label for="" id="Bname">Boarding Name</label> 
-                    <label for="" id="Bprice">Boarding price</label> 
-                    <label for="" id="Baddress">Boarding Address</label>
-                    <hr>
-                    <div class="button">
-                        <a href="" id="view">See details</a>
-                    </div>
-                </div>
-                <div class="box">
-                    <a href=""><img src="images/Pagaduan.png" alt="image"></a>
-                    <label for="" id="Bname">Boarding Name</label> 
-                    <label for="" id="Bprice">Boarding price</label> 
-                    <label for="" id="Baddress">Boarding Address</label>
-                    <hr>
-                    <div class="button">
-                        <a href="" >See details</a>
-                    </div>
-                </div>
-                
-            </ul>
+            echo "</ul>";
+        }
 
-        </div>  
-
+        $dataset->free_result();
+        ?>
     </div>
+</div>
+
     
     
 </body>
