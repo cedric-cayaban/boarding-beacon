@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             "Login Now!",
                             "success"
                         ).then(function () {
-                            window.location.href = "owner-login.php";
+                            window.location.href = "user-type-login.php";
                         });
                     });
                 </script>';
@@ -179,6 +179,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span id="username-error" class="error-message"></span>
                 <label for="">Password</label>
                 <input type="password" name="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                
+               
+                
+                <label for="">Retype Password</label>
+                <input type="password" name="re-password">
             </div>
 
             <div id="message">

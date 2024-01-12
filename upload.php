@@ -13,16 +13,9 @@ require 'db.php';
     <title>Add Boarding</title>
     <link rel="stylesheet" href="css/upload3.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
-<?php
-    if (isset($_POST['logout'])) {
-            session_start();
-            session_destroy();
-            header("Refresh: 1; url='user-type-login.php'");
-            echo "<script>alert('Logged out successfully.')</script>";
-        }
-?>
 
 <body>
 <header>
@@ -43,11 +36,14 @@ require 'db.php';
     <nav class="navi">
         <ul>
             <li id="left-nav">
-                <a href="" id="selected">Search</a>
-               
+                <a href="owner-boardings.php" ><i class="fa-solid fa-house"></i> My Boardings</a>
             </li>
         </ul>
-        <!-- boarding ng owner -->
+        <ul>
+            <li id="project">
+                <a href="upload.php" id="selected"><i class="fa-solid fa-plus"></i>&nbsp&nbspAdd</a>
+            </li>
+        </ul>
     </nav>
 
     <div class="container">
@@ -207,7 +203,19 @@ if (isset($_FILES["unit6"]) && $_FILES["unit6"]["error"] == UPLOAD_ERR_OK) {
             $unitsNo = $_POST['unitsNo'];
             $owner = isset($_GET['id']) ? $_GET['id'] : '';
             $sql = "INSERT INTO boarding (bName, addressID, bDescription, bPrice, bUnitNo, bImage, bImg1, bImg2, bImg3, bImg4,  bImg5, bImg6, bStatus) VALUES ('$title', '$address', '$info', '$price', '$unitsNo', '$filename', '$unit1','$unit2','$unit3','$unit4','$unit5','$unit6','vacant')";
-            $con->query($sql) or die("Error query $sql");
+            if ($con->query($sql)) {
+                // SweetAlert for successful upload
+                echo "<script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: 'Boarding house added successfully!',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            window.location.href = 'owner-boardings.php'; // Redirect to a specific page
+                        });
+                      </script>";
+            }
         }
     }
 }

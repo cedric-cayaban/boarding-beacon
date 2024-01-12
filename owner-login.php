@@ -62,7 +62,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['password'] = $row['password'];
                 $forID = $row['ownerID'];
                
-                header("Refresh: 1; url='upload.php'");
+                header("Refresh: 1; url='owner-boardings.php'");
             }$sql->free_result();
         }
     }

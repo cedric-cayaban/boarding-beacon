@@ -193,9 +193,38 @@ header {
 }
 
 #oPrice{
-    margin-bottom: 3%;
-    font-size: 1.7rem;
+    padding-bottom: 4%;
+    font-size: 1.9rem;
     color: #FE721B;
+}
+
+.spacer{
+    margin-top: 3%;
+}
+.actions{
+    margin-top: 3%;
+    display: flex;
+}
+
+#editBtn{
+    background-color: #FE721B;
+    border: solid 1px #FE721B;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+    
+    
+}
+
+#deleteBtn{
+    background-color: red;
+    border: solid 1px red;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: white;
+    
+    margin-left: 20%;
+
 }
 
 

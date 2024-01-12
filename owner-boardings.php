@@ -1,12 +1,28 @@
+<?php
+require 'db.php';
+ 
+ 
+ 
+
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/owner-boardings3.css">
+    <link rel="stylesheet" href="css/owner-boardings4.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<?php
+    if (isset($_POST['logout'])) {
+            session_start();
+            session_destroy();
+            header("Refresh: 1; url='user-type-login.php'");
+            echo "<script>alert('Logged out successfully.')</script>";
+        }
+?>
 <body>
 
     <header>
@@ -15,7 +31,7 @@
             <label>BOARDING<span class="university-name"> BEACON</span></label>
 
         </div>
-        <form action="user_home.php" method="post">
+        <form action="owner-boardings.php" method="post">
             <div class="system-name">
                 
                 <button type="submit" name="logout" id="logout">LOGOUT</button>
@@ -39,33 +55,43 @@
     </nav>
 
     <div class="container">
-        <a href="">
-            <div class="box">
+    <?php
+        $dataset = $con->query("SELECT * FROM boarding INNER JOIN address ON boarding.addressID = address.addressID ORDER BY boardID DESC") or die("error");
 
-                    <img src="images/Pagaduan.png" alt="">
+ 
+           
+ 
+        for ($i = 0; $i < $dataset->num_rows; $i ++) {
                 
-                <div class="labels">
-                    <label for="" id="bName">Boarding name</label>
-                    <label for="" id="bAddress">Address</label>
-                    <label for="" id="bPrice">Price</label>
-                </div>
-            </div>
+                $row = $dataset->fetch_assoc();
+ 
+                if ($row) {
+                    echo "
+                    <a href='board-details-owner.php?id=" . $row['boardID'] . "'>
+                        <div class='box' data-boarding-id='" . $row['boardID'] . "'>
+
+                            <img src='images/" . $row['bImage'] . "' alt='images'>
+                            
+                            <div class='labels'>
+                                <label id='bName'>". $row['bName'] . "</label> <br>
+                                <label id='bPrice'>" . $row['bPrice'] . "</label> <br>
+                                <label id='bAddress'>" . $row['barangay'] . "</label> <br>
+                                <label id='Bstatus'>" . $row['bStatus'] . "</label>
+                            </div>
+
+                            
+                        </div>
+                    </a>
+    ";
+                }
+            }
+ 
             
-        </a>
-
-        <a href="">
-            <div class="box">
-                
-                    <img src="images/Pagaduan.png" alt="">
-                
-                <div class="labels">
-                    <label for="" id="bName">Boarding name</label>
-                    <label for="" id="bAddress">Address</label>
-                    <label for="" id="bPrice">Price</label>
-                </div>
-
-            </div>
-        </a>
+        
+ 
+        $dataset->free_result();
+        ?>
+        
 
         
         

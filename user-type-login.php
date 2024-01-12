@@ -23,7 +23,7 @@
         <form action="login.php" method="post" class="field-input">
 
             <div class="labels">
-                <label for="">Register as:</label>
+                <label for="">Login as:</label>
             </div>
             
 

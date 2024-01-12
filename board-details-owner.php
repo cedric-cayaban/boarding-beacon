@@ -25,6 +25,25 @@
     <?php
  
  require 'db.php';
+
+ if(isset($_POST['delete'])) {
+    if(isset($_POST['boarding_id']) && filter_var($_POST['boarding_id'], FILTER_VALIDATE_INT)) {
+        $boarding_id = $_POST['boarding_id'];
+ 
+        $delete_query = $con->prepare("DELETE FROM boarding WHERE boardID = ?");
+        $delete_query->bind_param("i", $boarding_id);
+       
+        if($delete_query->execute()) {
+            header("Location: owner-boardings.php");
+            exit();
+        } else {
+            echo "Error deleting boarding house: " . $con->error;
+        }
+    } else {
+        echo "Invalid boarding ID";
+    }
+}
+
 if (isset($_GET['id'])) {
 $bh_id = $_GET['id'];
 
@@ -72,10 +91,17 @@ if ($bh_row = $bh_result->fetch_assoc()) {
         
         
      <label id='oPrice'>₱".$bh_row['bPrice']."</label>
-     <div class='spacer'>
-    <div id='paypal-button-container'></div>
-     </div>
-         
+        
+     <div class='actions'>
+     <form action='edit_board.php' method='post'>
+         <input type='hidden' name='boarding_id' value='" . $bh_row['boardID'] . "'>
+         <button type='submit' id='editBtn' name='edit' class='edit-btn'>Edit</button>
+     </form>
+     <form action='' method='post'>
+         <input type='hidden' name='boarding_id' value='" . $bh_row['boardID'] . "'>
+         <button type='submit' id='deleteBtn' name='delete' class='delete-btn'>Delete</button>
+     </form>
+</div>
      </div>
      <hr>
  </div>
@@ -87,53 +113,7 @@ if ($bh_row = $bh_result->fetch_assoc()) {
 
 $bh_query->close();
 }
-
-
 ?>
-<script>
- paypal.Buttons({
-     createOrder: function(data, actions){
-         return actions.order.create({
-             purchase_units: [{
-                 amount: {
-                     value: "<?php echo $payment; ?>"
-                    
-                 },
-             }]
-         });
-     },
-     onApprove: function(data, actions){
-         return actions.order.capture().then(function(details){
-            
-             console.log(details.payer.name.given_name);
-             console.log(details);
 
-            
-             Swal.fire({
-                 icon: 'success',
-                 title: 'Payment Successful!',
-                 text: 'Thank you for your payment.',
-                 confirmButtonText: 'OK'
-             }).then((result) => {
-                
-                 if (result.isConfirmed) {
-                    
-                     window.location.href = 'tenant-home.php';
-                 }
-             });
-         });
-     },
-     onError: function(err) {
-        
-         Swal.fire({
-             icon: 'error',
-             title: 'Payment Error',
-             text: 'There was an error processing your payment. Please try again.',
-             confirmButtonText: 'OK'
-         });
-     }
- }).render('#paypal-button-container');
-</script>
 </body>
 </html>
-

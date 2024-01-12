@@ -3,8 +3,19 @@
 <?php
 require 'db.php';
 ?>
+<?php
+    if (isset($_POST['reject'])) {
+        $UpOwnerID = $_POST['ownerID'];
+
+        $select = "DELETE FROM `owner` WHERE ownerID = '$UpOwnerID'";
+        $result = mysqli_query($con, $select);
+        echo "<script>alert('Account Deleted.')</script>";
+        header("Refresh: 1; url='admin-owner.php'");
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +38,7 @@ require 'db.php';
 </head>
 
 <body>
-<header>
+    <header>
         <div class="top-section">
             <img class="logo" src="images/image-logo.png" alt="PSU Logo">
             <label><b>BOARDING</b><span class="brand-name"> <b></b>BEACON</span></label> 
@@ -43,18 +54,15 @@ require 'db.php';
             <div class="container">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="owner-approval.php">Owner Approval</a>
+                    <a class="nav-link" href="owner-approval.php">Owner Approval</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="admin-tenants.php">Tenants</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-owner.php">Owner</a>
+                    <a class="nav-link active" href="#">Owners</a>
                 </li>
-
-
+                    
                 </ul>
 
                 </div>
@@ -68,35 +76,40 @@ require 'db.php';
 
     <thead>
         <tr>
-            <th>ID</th>
-            <th>First Name</th>
+            <th>Username</th>
+            <th>Password</th>
             <th>Last Name</th>
+            <th>First Name</th>
             <th>Mid Name</th>
-            <th>Permit</th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
 
 <?php
-$query = "SELECT owner.ownerID, owner.fname, owner.lname, owner.midname, owner.permit FROM owner WHERE accstatus = 'pending' ORDER BY ownerID ASC";
+$query = "SELECT owner.ownerID, owner.username, owner.password, owner.fname, owner.lname, owner.midname FROM owner";
 $result = mysqli_query($con, $query);
+
+if (!$result) {
+    die("Query failed: " . mysqli_error($con));
+}
+
 while ($row = mysqli_fetch_array($result)) {
 ?>
     <tbody>
         <tr>
-            <td><?php echo $row['ownerID']; ?></td>
+            <td><?php echo $row['username']; ?></td>
+            <td><?php echo $row['password']; ?></td>
             <td><?php echo $row['fname']; ?></td>
             <td><?php echo $row['lname']; ?></td>
-            <td><?php echo $row['midname']; ?></td>
             <td>
                 <!-- Display permit file name as a clickable link -->
-                <a href="permits/<?php echo $row['permit']; ?>" target="_blank"><?php echo $row['permit']; ?></a>
+                <?php echo $row['midname']; ?>
             </td>
             <td>
-                <form action="owner-approval.php" method="post">
+                <form action="admin-owner.php" method="post">
                     <input type="hidden" name="ownerID" value="<?php echo $row['ownerID']; ?>">
-                    <Button type='submit' name="approve" value="Approve" class='btn btn-success'>Accept</Button>
-                    <Button type='submit' name="reject" value="Reject" class='btn btn-danger'>Reject</Button>
+                    
+                    <Button type='submit' name="reject" value="Reject" class='btn btn-danger'>Delete</Button>
                 </form>
             </td>
         </tr>
@@ -108,35 +121,7 @@ while ($row = mysqli_fetch_array($result)) {
 
     </div>
 
-    <?php
-    if (isset($_POST['approve'])) {
-        $UpOwnerID = $_POST['ownerID'];
-
-        $select = "UPDATE owner SET owner.accstatus = 'approved' WHERE ownerID = '$UpOwnerID'";
-        $result = mysqli_query($con, $select);
-
-        echo "<script>alert('Owner Approved!')</script>";
-        header("Refresh: 1; url='owner-approval.php'");
-    }
-    if (isset($_POST['reject'])) {
-        $UpOwnerID = $_POST['ownerID'];
-
-        //delete file from folder
-        $query = "SELECT * FROM owner WHERE ownerID = '$UpOwnerID'";
-        $res = mysqli_query($con, $query);
-        while ($row = mysqli_fetch_array($res)) {
-            // echo $row['FileContent'];
-            unlink('permits/' . $row['permit']);
-        }
-
-        $select = "DELETE FROM owner WHERE ownerID = '$UpOwnerID'";
-        $result = mysqli_query($con, $select);
-        echo "<script>alert('Owner Rejected.')</script>";
-
-
-        header("Refresh: 1; url='owner-approval.php'");
-    }
-    ?>
+    
 </body>
 
 </html>

@@ -145,6 +145,11 @@ header {
     
 }
 
+.seperation{
+    display: flex;
+    justify-content: space-around;
+}
+
 .box img{
     height: 200px;
     width: 300px;
@@ -155,7 +160,7 @@ header {
     display: flex;
     flex-direction: column;
     margin-left: 4%;
-    margin-top: 5%;
+    margin-top: 1%;
 }
 
 #bName{
