@@ -8,9 +8,19 @@ require 'db.php';
         $UpOwnerID = $_POST['tenantID'];
 
         $select = "DELETE FROM `tenant` WHERE tenantID = '$UpOwnerID'";
-        $result = mysqli_query($con, $select);
-        echo "<script>alert('Account Deleted.')</script>";
-        header("Refresh: 1; url='admin-tenants.php'");
+        if($result = mysqli_query($con, $select)){
+            echo '<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire(
+                    "Account Deleted!",
+                    "Tenant account has been deleted!",
+                    "error"
+                ).then(function () {
+                    window.location.href = "admin-tenants.php";
+                });
+            });
+        </script>';  
+        }
     }
     ?>
 <!DOCTYPE html>
@@ -23,6 +33,7 @@ require 'db.php';
     <link rel="stylesheet" href="css/tenant-home8.css">
     <title>Owner Approval</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style>
        .center h1{
         margin-top:2%;
@@ -65,7 +76,7 @@ require 'db.php';
             </div>
         </nav>
     <div class="center">
-        <h1>Owner Registration</h1>
+        <h1>Tenant Accounts</h1>
 
         <table class='table table-striped'>
        <!-- ... (previous HTML code) ... -->

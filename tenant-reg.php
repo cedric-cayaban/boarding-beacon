@@ -6,11 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lname = $_POST['lastname'];
     $fname = $_POST['firstname'];
     $midname = $_POST['middle-initial'];
+    $sex = $_POST['sex'];
     $contact = $_POST['contact'];
+    $address = $_POST['address'];
     $username = $_POST['id-number'];
     $password = $_POST['password'];
 
-            $sql = "INSERT INTO tenant (fname, lname, midname, username, password, contactNo) VALUES ('$lname', '$fname', '$midname', '$username', '$password', '$contact')";
+            $sql = "INSERT INTO tenant (fname, lname, midname, sex, username, password, contactNo, address) VALUES ('$lname', '$fname', '$midname', '$sex', '$username', '$password', '$contact', '$address')";
 
             $result = $con->query($sql);
 
@@ -47,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=3.0">
-    <link rel="stylesheet" href="css/create-acc4.css">
+    <link rel="stylesheet" href="css/create-acc5.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10">
 
@@ -133,7 +135,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
 
             <div class="field-input3">
-
+            <label for="">Sex</label>
+                <select name="sex" id="">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            <label for="">Address</label>
+            <input type="text" name="address">
             <label for="">Contact No.</label>
             <input type="number" name="contact" id="contact" required>
             <label for="">Username</label>

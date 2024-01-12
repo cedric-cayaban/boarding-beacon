@@ -7,7 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lname = $_POST['lastname'];
     $fname = $_POST['firstname'];
     $midname = $_POST['middle-initial'];
+    $sex = $_POST['sex'];
     $contact = $_POST['contact'];
+    $address = $_POST['address'];
     $username = $_POST['id-number'];
     $password = $_POST['password'];
 
@@ -20,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Move the uploaded file to the specified folder
         if (move_uploaded_file($tempname, $folder)) {
             // File uploaded successfully
-            $sql = "INSERT INTO owner (fname, lname, midname, username, password, contactNo, permit, accstatus) VALUES ('$lname', '$fname', '$midname', '$username', '$password', '$contact', '$file','pending')";
+            $sql = "INSERT INTO owner (fname, lname, midname, sex, username, password, contactNo, address, permit, accstatus) VALUES ('$lname', '$fname', '$midname', '$sex', '$username', '$password', '$contact', '$address','$file','pending')";
 
             $result = $con->query($sql);
 
@@ -81,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=3.0">
-    <link rel="stylesheet" href="css/create-acc4.css">
+    <link rel="stylesheet" href="css/create-acc5.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10">
 
@@ -168,23 +170,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" id="middle-initial" name="middle-initial">
             </div>
 
-           
+            
 
             <div class="field-input3">
-
-            <label for="">Contact No.</label>
-            <input type="number" name="contact" id="contact" required>
-            <label for="">Username</label>
-            <input type="text" name="id-number" id="username" required>
-            <span id="username-error" class="error-message"></span>
+                <label for="">Sex</label>
+                <select name="sex" id="">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <label for="">Address</label>
+                <input type="text" name="address">
+                <label for="">Contact No.</label>
+                <input type="number" name="contact" id="contact" required>
+                <label for="">Username</label>
+                <input type="text" name="id-number" id="username" required>
+                <span id="username-error" class="error-message"></span>
                 <label for="">Password</label>
                 <input type="password" name="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                
-               
-                
                 <label for="">Retype Password</label>
                 <input type="password" name="re-password">
             </div>
+
+            
+            
 
             <div id="message">
             <h3>Password must contain the following:</h3>

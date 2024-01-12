@@ -12,6 +12,7 @@ require 'db.php';
     <link rel="stylesheet" href="css/tenant-home8.css">
     <title>Owner Approval</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style>
        .center h1{
         margin-top:2%;
@@ -113,10 +114,19 @@ while ($row = mysqli_fetch_array($result)) {
         $UpOwnerID = $_POST['ownerID'];
 
         $select = "UPDATE owner SET owner.accstatus = 'approved' WHERE ownerID = '$UpOwnerID'";
-        $result = mysqli_query($con, $select);
-
-        echo "<script>alert('Owner Approved!')</script>";
-        header("Refresh: 1; url='owner-approval.php'");
+        if($result = mysqli_query($con, $select)){
+            echo '<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire(
+                    "Admin Approved",
+                    "Admin account has been approved!",
+                    "success"
+                ).then(function () {
+                    window.location.href = "owner-approval.php";
+                });
+            });
+        </script>';  
+        }
     }
     if (isset($_POST['reject'])) {
         $UpOwnerID = $_POST['ownerID'];
@@ -130,11 +140,19 @@ while ($row = mysqli_fetch_array($result)) {
         }
 
         $select = "DELETE FROM owner WHERE ownerID = '$UpOwnerID'";
-        $result = mysqli_query($con, $select);
-        echo "<script>alert('Owner Rejected.')</script>";
-
-
-        header("Refresh: 1; url='owner-approval.php'");
+        if($result = mysqli_query($con, $select)){
+            echo '<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire(
+                    "Admin Rejected!",
+                    "Admin account has been Rejected!",
+                    "error"
+                ).then(function () {
+                    window.location.href = "owner-approval.php";
+                });
+            });
+        </script>';  
+        }
     }
     ?>
 </body>

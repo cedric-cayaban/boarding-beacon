@@ -204,6 +204,14 @@ header {
     
 }
 
+.field-input3 select{
+    margin-bottom: 10px;
+    height: 40px;
+    width: 467px;
+    margin-left: 14.5px;
+    padding: 5px;
+}
+
 .wrapper .field-input3 label{
     margin-bottom: 10px;
     margin-left: 14.5px;
@@ -330,6 +338,32 @@ header {
   cursor: pointer;
   font-size: 0.8rem;
 }
+
+.radios{
+    display: flex;
+    justify-content: space-around;
+}
+
+#rad{
+    width: 35px;
+    margin-left: 1.5%;
+}
+
+.rad-group{
+    
+}
+
+.rad-group label{
+    padding-top: 14%;
+    padding-right: 4%;
+}
+
+#sex-label{
+    margin-left: 3%;
+    font-weight: bold;
+}
+
+
 
 
 /* Add this at the end of your existing CSS */
