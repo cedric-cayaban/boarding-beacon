@@ -115,66 +115,20 @@ header {
     padding-bottom: 16px;
     transition: all .5s ease;
 }
-.navi ul li a:hover{
-    background-color: white;
-    color: black;
-    box-shadow: 0px 0px 10px white;
-}
+
 
 .container{
-   
     display: flex;
-    flex-direction: column;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 3%;
     width: 80%;
+   
 }
 
-.container a{
-    border: solid #FE721B 1px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: black;
-    margin-bottom: 1%;
-    
+.encasing{
+    background-color: red;
+    width: 35%;
 }
 
-.box{
-    display: flex;
-    
-}
-
-.seperation{
-    display: flex;
-    justify-content: space-around;
-}
-
-.box img{
-    height: 200px;
-    width: 300px;
-    border-radius: 5px;
-}
-
-.labels{
-    display: flex;
-    flex-direction: column;
-    margin-left: 4%;
-    margin-top: 1%;
-}
-
-#bName{
-    font-size: 2rem;
-    margin-bottom: 1%;
-}
-
-#bAddress{
-    font-size: 1.3rem;
-    margin-bottom: 1%;
-}
-
-#bPrice{
-    font-size: 1.3rem;
-    margin-bottom: 1%;
-}
 

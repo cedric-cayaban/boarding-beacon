@@ -10,7 +10,7 @@ require 'db.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/owner-boardings4.css">
+    <link rel="stylesheet" href="css/owner-boardings5.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -45,6 +45,9 @@ require 'db.php';
         <ul>
             <li id="left-nav">
                 <a href="" id="selected"><i class="fa-solid fa-house"></i> My Boardings</a>
+            </li>
+            <li id="">
+                <a href="owner-earnings.php"></i>Earnings</a>
             </li>
         </ul>
         <ul>

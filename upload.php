@@ -11,7 +11,7 @@ require 'db.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Boarding</title>
-    <link rel="stylesheet" href="css/upload3.css">
+    <link rel="stylesheet" href="css/upload4.css">
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
@@ -45,6 +45,9 @@ require 'db.php';
         <ul>
             <li id="left-nav">
                 <a href="owner-boardings.php" ><i class="fa-solid fa-house"></i> My Boardings</a>
+            </li>
+            <li id="">
+                <a href="owner-earnings.php"></i>Earnings</a>
             </li>
         </ul>
         <ul>
