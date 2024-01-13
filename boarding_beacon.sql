@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2024 at 05:48 PM
+-- Generation Time: Jan 13, 2024 at 08:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -137,7 +137,8 @@ INSERT INTO `owner` (`ownerID`, `fname`, `lname`, `password`, `username`, `midna
 (32, 'cayaban', 'cedric', 'Cedced123', 'cedced', 'f', '', 2147483647, '', 'cayaban_assign_im.pdf', 'approved'),
 (43, 'biag', 'mak', 'Makmak123', 'makmak', 'b', '', 2147483647, '', 'White Abstract Graphic Design Portfolio Cover A4 Document (5).png', 'approved'),
 (46, 'mak', 'biag', 'Makmak123', 'makmak', 'b', 'Male', 2147483647, 'MACARANG, MANGATAREM, 2413', 'White Abstract Graphic Design Portfolio Cover A4 Document (4).png', 'pending'),
-(47, 'Carpio', 'Christopherson', 'Topetope123', 'topetope', 'C', 'Male', 2147483647, 'MACARANG, MANGATAREM, 2413', 'White Abstract Graphic Design Portfolio Cover A4 Document (5).png', 'pending');
+(47, 'Carpio', 'Christopherson', 'Topetope123', 'topetope', 'C', 'Male', 2147483647, 'MACARANG, MANGATAREM, 2413', 'White Abstract Graphic Design Portfolio Cover A4 Document (5).png', 'pending'),
+(48, 'kj', 'jk', 'asd', 'asd', 'as', 'male', 98219, 'macarng', 'sadasadsa', 'dsadsa');
 
 -- --------------------------------------------------------
 
@@ -154,16 +155,17 @@ CREATE TABLE `tenant` (
   `midname` varchar(255) NOT NULL,
   `sex` varchar(255) NOT NULL,
   `contactNo` int(13) NOT NULL,
-  `address` varchar(255) NOT NULL
+  `address` varchar(255) NOT NULL,
+  `rented_bh` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tenant`
 --
 
-INSERT INTO `tenant` (`tenantID`, `fname`, `lname`, `username`, `password`, `midname`, `sex`, `contactNo`, `address`) VALUES
-(50, 'Carpio', 'Christopherson', 'topetope', '12345Qwer', 'C', '', 2147483647, ''),
-(51, 'cayaban', 'biag', 'janela', 'Tope12345', 'b', '', 2147483647, '');
+INSERT INTO `tenant` (`tenantID`, `fname`, `lname`, `username`, `password`, `midname`, `sex`, `contactNo`, `address`, `rented_bh`) VALUES
+(50, 'Carpio', 'Christopherson', 'topetope', '12345Qwer', 'C', '', 2147483647, '', 'Sample Name'),
+(51, 'cayaban', 'biag', 'janela', 'Tope12345', 'b', '', 2147483647, '', '');
 
 --
 -- Indexes for dumped tables
@@ -208,7 +210,7 @@ ALTER TABLE `boarding`
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `ownerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ownerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tenant`

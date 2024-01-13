@@ -51,23 +51,32 @@ if (isset($_POST['login'])) {
 
     if (!empty($username) && !empty($password)) {
 
-        $sql = "SELECT * FROM tenant WHERE username = '$username' AND password = '$password'";
-        $result = mysqli_query($con, $sql);
+        
+        $stmt = $con->prepare("SELECT tenantID, username, password FROM tenant WHERE username = ? AND password = ?");
+        $stmt->bind_param("ss", $username, $password);
+        $stmt->execute();
+        $stmt->store_result();
 
-        if (mysqli_num_rows($result) >= 1) {
-            $row = mysqli_fetch_assoc($result);
+        if ($stmt->num_rows >= 1) {
+            $stmt->bind_result($tenantID, $dbUsername, $dbPassword);
+            $stmt->fetch();
 
-            if ($row['username'] === $username && $row['password'] === $password) {
-                $_SESSION['username'] = $row['username'];
-                $_SESSION['password'] = $row['password'];
+            if ($dbUsername === $username && $dbPassword === $password) {
+                
+                $_SESSION['tenantID'] = $tenantID;
+                $_SESSION['username'] = $dbUsername;
+                $_SESSION['password'] = $dbPassword;
 
+                // Redirect to tenant home page
                 header("Location: tenant-home.php");
+                exit();
             }
         }
     }
+
+    // Invalid credentials
     echo "<script>
             alert('Invalid Credentials');
         </script>";
 }
 ?>
-

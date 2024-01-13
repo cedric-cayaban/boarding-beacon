@@ -15,6 +15,14 @@ require 'db.php';
     <script src="https://kit.fontawesome.com/979ee355d9.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
+<?php
+    if (isset($_POST['logout'])) {
+            session_start();
+            session_destroy();
+            header("Refresh: 1; url='user-type-login.php'");
+           
+        }
+?>
 
 
 <body>

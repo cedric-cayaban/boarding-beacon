@@ -20,7 +20,7 @@ require 'db.php';
             session_start();
             session_destroy();
             header("Refresh: 1; url='user-type-login.php'");
-            echo "<script>alert('Logged out successfully.')</script>";
+           
         }
 ?>
 <body>
@@ -74,7 +74,7 @@ require 'db.php';
                             
                             <div class='labels'>
                                 <label id='bName'>". $row['bName'] . "</label> <br>
-                                <label id='bPrice'>" . $row['bPrice'] . "</label> <br>
+                                <label id='bPrice'>₱" . $row['bPrice'] . "</label> <br>
                                 <label id='bAddress'>" . $row['barangay'] . "</label> <br>
                                 <label id='Bstatus'>" . $row['bStatus'] . "</label>
                             </div>
